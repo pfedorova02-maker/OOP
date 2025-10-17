@@ -1,9 +1,14 @@
 package GUI
 
 class Rectangle(
-    val length: Int = 0,
-    val width: Int = 0
+    var length: Int = 0,
+    var width: Int = 0
 ) {
+
+    val area: Int
+        get() {
+            return length * width
+        }
 
     constructor(size: Int) : this(size, size)
 

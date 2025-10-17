@@ -1,31 +1,19 @@
 package Profile
 
+import Corporation.Director
+import Corporation.Worker
+
 fun main() {
-    print("Input 1st name: ")
-    val name1 = readln()
-    print("Input 2nd name: ")
-    val name2 = readln()
-    print("Input 1st age: ")
-    val age1 = readln().toInt()
-    print("Input 2nd age: ")
-    val age2 = readln().toInt()
-    print("Input 1st height: ")
-    val height1 = readln().toInt()
-    print("Input 2nd height: ")
-    val height2 = readln().toInt()
-    print("Input 1st weight: ")
-    val weight1 = readln().toInt()
-    print("Input 2nd weight: ")
-    val weight2 = readln().toInt()
-    val polya = Person(nameClass = name1, heightClass = height1, weightClass = weight1)
-    val ilkham = Person(nameClass = name2, heightClass = height2, weightClass = weight2)
+    val persons = mutableSetOf<Person>()
+    val person1 = Person("Sasha", "Bublik", 171, 53)
+    val person2 = Person("Sasha", "Bublik", 171, 53)
+    val person3 = person1.copy(nameClass = "Masha")
 
-    polya.ageClass = age1
-    ilkham.ageClass = age2
+    persons.add(person1)
+    persons.add(person2)
+    persons.add(person3)
 
-    polya.info()
-    ilkham.info()
-
-    polya.ageClass = 0
-    ilkham.ageClass = 0
+    for (person in persons){
+        person.printInfo()
+    }
 }

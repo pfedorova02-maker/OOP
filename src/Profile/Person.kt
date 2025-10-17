@@ -1,10 +1,22 @@
 package Profile
 
-class Person(
-    private val nameClass: String,
-    private val heightClass: Int,
-    private val weightClass: Int
+import Corporation.Worker
+
+data class Person(
+    val nameClass: String,
+    val secondNameClass : String,
+    val heightClass: Int,
+    val weightClass: Int
 ) {
+
+    open fun printInfo() {
+        println(this)
+    }
+
+
+
+    val firstAndSecondName: String
+        get() = "$nameClass $secondNameClass"
 
     var ageClass: Int = 18
 
@@ -27,6 +39,7 @@ class Person(
     fun sayHello (){
         println("Hello! My name is $nameClass")
     }
+
 
 }
 

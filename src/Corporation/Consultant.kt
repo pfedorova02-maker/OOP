@@ -3,11 +3,16 @@ package Corporation
 import Corporation.Worker
 import kotlin.random.Random
 
-class Consultant(
-    nameC: String,
-    ageC: Int = 0,
-    idC: Int
-): Worker(name = nameC, age = ageC, id = idC), Cleaner{
+data class Consultant(
+    override val name: String,
+    override val age: Int = 0,
+    override val id: Int,
+    override val  salary: Int
+): Worker(name = name, age = age, id = id, salary = salary, type = WorkerType.CONSULTANT), Cleaner{
+
+    override fun copy(name: String, age: Int, id: Int, salary: Int, type: WorkerType): Accountant {
+        return Accountant(name = name, age = age, id = id, salary = salary)
+    }
 
     override fun clean() {
         println("My position is Consultant. I am cleaning workplace")

@@ -2,10 +2,22 @@ package Corporation
 
 import Corporation.Worker
 
-class Assistant(
-     nameA: String,
-     idA: Int
-) : Worker(nameA, 30, 1), Cleaner, Supplier{
+data class Assistant(
+     override val name: String,
+     override val id: Int,
+     override val age: Int = 0,
+     override val salary: Int
+) : Worker(
+    name = name,
+    age = age,
+    id = id,
+    salary = salary,
+    type = WorkerType.ASSISTANT
+), Cleaner, Supplier{
+
+    override fun copy(name: String, age: Int, id: Int, salary: Int, type: WorkerType): Accountant {
+        return Accountant(name = name, age = age, id = id, salary = salary)
+    }
 
     override fun clean() {
         println("My position is Assistant. I am cleaning workplace")

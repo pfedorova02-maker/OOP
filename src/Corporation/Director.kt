@@ -2,13 +2,18 @@ package Corporation
 
 import Corporation.Worker
 
-class Director(
-    nameD: String,
-    ageD: Int,
-    idD: Int
-): Worker(name = nameD, age = ageD, id = idD), Supplier {
+data class Director(
+    override val name: String,
+    override val age: Int,
+    override val  id: Int,
+    override val  salary: Int
+): Worker(name = name, age = age, id = id, salary = salary, type = WorkerType.DIRECTOR), Supplier {
     override fun work (){
         println("I am drinking coffee!")
+    }
+
+    override fun copy(name: String, age: Int, id: Int, salary: Int, type: WorkerType): Accountant {
+        return Accountant(name = name, age = age, id = id, salary = salary)
     }
 
     override fun buy() {

@@ -1,9 +1,12 @@
 package Corporation
 
-class Shoes(nameClassShoes: String, priceClassShoes: Int, val size: Int):
-    ProductCard(nameClass = nameClassShoes, priceClass = priceClassShoes, ProductType.SHOES) {
-
-    override fun toString(): String {
-        return ("Name: $nameClass Price: $priceClass Product Type ${productType.title} Power: $size\n")
-    }
-}
+data class Shoes(
+    override val nameClass: String,
+    override val priceClass: Int,
+    val size: Int
+):
+    ProductCard(
+        nameClass = nameClass,
+        priceClass = priceClass,
+        ProductType.SHOES
+    )

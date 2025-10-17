@@ -9,5 +9,6 @@ enum class EnamOperationCode(val action: String) {
     REGISTER_NEW_EMPLOYEE("Register new employee"),
     FIRE_AN_EMPLOYEE("Fire an employee"),
     SHOW_ALL_EMPLOYEE("Show all employees"),
-    CHANGE_SALARY("Change salary")
+    CHANGE_SALARY("Change salary"),
+    CHANGE_AGE("Change age")
 }
